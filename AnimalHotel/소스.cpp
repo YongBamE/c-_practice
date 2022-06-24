@@ -27,7 +27,7 @@ int main() {
 			system("pause");
 		}
 		else if (menu == 2) {//체크아웃
-			hotel->checkout(animal);
+			hotel->checkout();
 			system("pause");
 		}
 		else if (menu == 3) {//조회

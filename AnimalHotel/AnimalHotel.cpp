@@ -13,7 +13,7 @@
 	AnimalHotel ::AnimalHotel() {
 		cout << "방을 개수 선택하세요" << endl;
 		cin >> roomnum;
-		animalRoom = new Animal * [roomnum];
+		animalRoom = new Animal* [roomnum];
 		// null값으로 초기화 해준다.
 		for (int i = 0; i < roomnum; i++)
 		{
@@ -46,10 +46,16 @@
 
 	}
 
-	void AnimalHotel::checkout(Animal* a) {
+	void AnimalHotel::checkout() {
 		cout << "방을 선택하세요" << endl;
 		cin >> roomselect;
-		animalRoom[roomselect]->checkout();
+		if (animalRoom[roomselect] == 0) {
+			animalRoom[roomselect]->checkout();
+			cout << "투숙객이 없습니다. 다시 선택하세요" << endl;
+		}
+		else {
+			animalRoom[roomselect]->checkout();
+		}
 		delete animalRoom[roomselect];
 		animalRoom[roomselect] = 0;
 	}

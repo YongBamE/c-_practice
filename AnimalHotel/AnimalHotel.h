@@ -22,7 +22,7 @@ public:
 
 	//±â´É
 	void checkin(Animal* a);
-	void checkout(Animal* a);
+	void checkout();
 
 	void roomcheck();
 	void servicelist();
