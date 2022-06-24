@@ -1,26 +1,30 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include "Animal.h"
 #include "string.h"
 
+#include "Animal.h"
+#include "CDog.h"
+#include "CCat.h"
+
 class AnimalHotel {
-	typedef struct _room {
-	}Room;
 private:
-	Room room[8];
+	Animal** animalRoom;
+	//Animal* animalRoom = new Animal[8]; //이렇게 선언은 되는데 잘 안됐음. 
+	int roomselect = 0;
+	int roomnum = 0;
+	char specific[20];
+	char name[20];
+
 public:
-	AnimalHotel() {}
+	//생성자
+	AnimalHotel();
 
+	//기능
+	void checkin(Animal* a);
+	void checkout(Animal* a);
 
-	void checkin(Animal* a, int roomNum) {
-	
-	}
-	void checkout(Animal a, int roomNum) {
-		
-	}
-
-	void roomcheck() {
-	
-	}
-
+	void roomcheck();
+	void servicelist();
 };
+

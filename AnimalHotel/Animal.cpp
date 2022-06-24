@@ -1,45 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "Animal.h"
 #include "string.h"
 
 using namespace std;
-class Animal {
-private:
-	char* name;
-public:
-	Animal() {};
-	Animal(char* myname) : name(myname)
+
+
+	Animal::Animal() {};
+	Animal::Animal(char* myname) : name(myname)
 	{
-		name = new char(strlen(myname) + 1);
+		name = new char[strlen(myname) + 1];
 		strcpy(name, myname);
 	}
-	const char* getName() {
+	//get,set
+	const char* Animal::getName() const {
 		return name;
 	}
-	void setName(const char* myname) {
-		this->name = new char(strlen(myname) + 1);
+	void Animal::setName(const char* myname) {
+		this->name = new char[strlen(myname) + 1];
 		strcpy(this->name, myname);
 	}
-	void ShowName() {
-		cout << "저는" << name << "입니다" << endl;
+	//기능
+	void Animal ::checkout() {
+		cout << "?? 잘가" << endl;
 	}
-	~Animal() {
+	void Animal :: checkin() {
+		cout << "?? 어서와" << endl;
+	}
+	//소멸자
+	Animal :: ~Animal() {
 		delete[]name;
 	}
-
-
-};
-
-class Dog : public Animal {
-
-public:
-	Dog(char* name) : Animal(name) {
-
-	};
-};
-class Cat : public Animal {
-
-public:
-	Cat(char* name) : Animal(name) {};
-
-};
